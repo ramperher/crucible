@@ -25,7 +25,7 @@
     chdir: "{{ repo_root_path }}"
   register: command_result
   until: command_result.rc == 0
-  retries: 6
+  retries: 3
   delay: 20
   ignore_errors: True
 
