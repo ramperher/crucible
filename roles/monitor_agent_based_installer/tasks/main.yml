@@ -21,7 +21,7 @@
   vars:
     rendezvous_ip_address: "{{ hostvars[agent_based_installer_bootstrap_node][host_ip_keyword] }}"
   ansible.builtin.shell:
-    cmd: "{{ agent_based_installer_path }} --log-level=debug gather bootstrap --bootstrap {{ rendezvous_ip_address }}"
+    cmd: "{{ agent_based_installer_path }} --log-level=debug gather bootstrap --key /var/lib/dci-openshift-agent/.ssh/id_rsa --bootstrap {{ rendezvous_ip_address }}"
     chdir: "{{ repo_root_path }}"
   register: command_result
   until: command_result.rc == 0
